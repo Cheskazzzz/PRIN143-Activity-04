@@ -1,0 +1,68 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://example.com/schema.membership.json",
+    "title": "Membership",
+    "type": "object",
+    "properties": {
+      "LastName": {
+        "type": "string",
+        "minLength": 2,
+        "maxLength": 20
+      },
+      "GivenName": {
+        "type": "string",
+        "minLength": 2,
+        "maxLength": 20
+      },
+      "MiddleName": {
+        "type": ["string", "null"],
+        "minLength": 2,
+        "maxLength": 20
+      },
+      "Birthdate": {
+        "type": "object",
+        "properties": {
+          "Year": {
+            "type": "integer",
+            "minimum": 1900,
+            "maximum": 2100
+          }
+        },
+        "required": ["Year"]
+      },
+      "Gender": {
+        "type": "string",
+        "enum": ["Male", "Female", "Other"]
+      },
+      "MobileNumber": {
+        "type": "string",
+        "pattern": "^[0-9]{10}$"
+      },
+      "EmailAddress": {
+        "type": "string",
+        "format": "email"
+      },
+      "Interests": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "minItems": 1
+      },
+      "Platform": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "LastName",
+      "GivenName",
+      "MiddleName",
+      "Birthdate",
+      "Gender",
+      "MobileNumber",
+      "EmailAddress",
+      "Interests",
+      "Platform"
+    ]
+  }
+  
